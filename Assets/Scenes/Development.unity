@@ -746,10 +746,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e209a3f2bb88a478beabb862ce9d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryPrefabManager
-  sceneShipPrefab: []
-  sceneRefugeeBarracksPrefab: []
-  sceneCarPrefab: []
-  sceneYouthCenterPrefab: []
+  dataAsset:
+  - name: car_vietora_buruk
+    objectPrefab: {fileID: 3174671293440319372, guid: 5fd8bfae11a591249b60dc62cf863c08, type: 3}
+  - name: car_vietora_bagus
+    objectPrefab: {fileID: 0}
+  spawnedObject: []
 --- !u!1 &1417997254
 GameObject:
   m_ObjectHideFlags: 0

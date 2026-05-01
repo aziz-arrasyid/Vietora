@@ -7,19 +7,20 @@ public class ImageScanner : MonoBehaviour
 {
     private ARTrackedImageManager imageManager;
     [Header("Settings")]
+    public static Action<string, Pose, bool> OnImageStatusChanged;
     [SerializeField] private bool imageScannerStatus = false;
     [SerializeField] private string imageScannerName = null;
     [SerializeField] private float maxDistance = 20f;
-    private Vector3 scannerPosition = Vector3.zero;
+    private Pose imagePose;
 
     private void Awake()
     {
-        imageManager = GetComponent<ARTrackedImageManager>();
+        imageManager = gameObject.GetComponent<ARTrackedImageManager>();
     }
 
     private void Update()
     {
-        if(!imageScannerStatus) return;
+        if (!imageScannerStatus) return;
         DisableScanner();
     }
 
@@ -28,34 +29,31 @@ public class ImageScanner : MonoBehaviour
 
     private void OnChanged(ARTrackablesChangedEventArgs<ARTrackedImage> eventArgs)
     {
-        foreach(var trackedImage in eventArgs.updated)
+        foreach (var trackedImage in eventArgs.updated)
         {
-            scannerPosition = trackedImage.transform.position;
-            float distance = DistanceScanner(Camera.main.transform.position, scannerPosition);
-            
-            if(trackedImage.trackingState == TrackingState.Tracking && distance <= maxDistance)
+            imagePose = new Pose(trackedImage.transform.position, trackedImage.transform.rotation);
+
+            if (trackedImage.trackingState == TrackingState.Tracking && DistanceCameraToImage(imagePose) <= maxDistance)
             {
                 imageScannerStatus = true;
                 imageScannerName = trackedImage.referenceImage.name;
-
-                Debug.Log(imageScannerName + ": " + imageScannerStatus);
+                OnImageStatusChanged?.Invoke(imageScannerName, imagePose, imageScannerStatus);
             }
         }
     }
 
-    private float DistanceScanner(Vector3 playerPosition, Vector3 scannerPosition)
+    private float DistanceCameraToImage(Pose imagePose)
     {
-        return Vector3.Distance(playerPosition, scannerPosition);
+        return Vector3.Distance(Camera.main.transform.position, imagePose.position);
     }
 
     private void DisableScanner()
     {
-        float distance = DistanceScanner(Camera.main.transform.position, scannerPosition);
-
-        if(distance > maxDistance)
+        if (DistanceCameraToImage(imagePose) > maxDistance)
         {
             imageScannerStatus = false;
             imageScannerName = null;
+            OnImageStatusChanged?.Invoke(imageScannerName, imagePose, imageScannerStatus);
         }
     }
 }
