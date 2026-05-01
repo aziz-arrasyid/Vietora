@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
 
 public class SceneStorySpawnManager : MonoBehaviour
 {
@@ -33,8 +36,10 @@ public class SceneStorySpawnManager : MonoBehaviour
                 if(asset.objectPrefab != null)
                 {
                     GameObject obj = Instantiate(asset.objectPrefab, imagePose.position, Quaternion.identity);
-                    obj.transform.localPosition += asset.offsetPosition;
+                    
+                    obj.transform.localPosition = asset.offsetPosition != Vector3.zero ? asset.offsetPosition : imagePose.position;
                     obj.transform.localEulerAngles += asset.offsetRotation;
+
                     spawnedObject.Add(new DataObjectAR(asset.name, obj, asset.offsetPosition, asset.offsetRotation));
                 }
             }
