@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 2066428993015510362}
   - component: {fileID: 7099382923439455848}
   - component: {fileID: 3871904200128125048}
+  - component: {fileID: 2846106491583628865}
   - component: {fileID: 3246305707101550633}
   m_Layer: 0
   m_Name: Female NPC
@@ -162,6 +163,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 20.10554, y: 1, z: 13.2761}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2846106491583628865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3174671293440319372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb898793194e03f4bb10dba03ec2cb70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.ARFoundation::UnityEngine.XR.ARFoundation.ARAnchor
+  m_DestroyOnRemoval: 1
 --- !u!114 &3246305707101550633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,8 +188,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f80dc12d5819429e3a90893c24d64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  VA: Lidia Eka Putri
   lines:
   - aku perempuan
+  isReadingCompleted: 0
 --- !u!1 &6594128402895501211
 GameObject:
   m_ObjectHideFlags: 0

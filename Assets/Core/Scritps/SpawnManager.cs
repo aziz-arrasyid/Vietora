@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     [Header("Scripts")]
     [SerializeField] private WorldManager manager;
     #endregion
-    [SerializeField] private List<QRGrouping> objectSpawned;
+    public List<QRGrouping> objectSpawned;
 
     #region Check Distance
     [Header("Check Distance Configuration")]

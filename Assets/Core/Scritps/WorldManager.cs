@@ -16,12 +16,22 @@ public struct QRGrouping
 {
     public QRTextList QRText;
     public GameObject parentObject;
+    public bool isReadingCompletedAll;
 }
 
 public struct ObjectActive
 {
     public QRTextList point;
     public bool active;
+}
+
+[System.Serializable]
+public struct QuizzData
+{
+    [TextArea]
+    public string question;
+    public int correctAnswer;
+    public string[] options;
 }
 
 public class WorldManager : MonoBehaviour

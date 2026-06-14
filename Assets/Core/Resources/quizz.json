@@ -1,0 +1,464 @@
+{
+    "quizzModelData": [
+        {
+            "name": "ship_vietora",
+            "quizzModel": [
+                {
+                    "number": 1,
+                    "question": {
+                        "id": "1. Perahu digunakan oleh pengungsi untuk…",
+                        "en": "1. Boats were used by refugees for…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Berdagang antar pulau",
+                            "B. Melarikan diri dari Vietnam",
+                            "C. Berwisata",
+                            "D. Menangkap ikan"
+                        ],
+                        "en": [
+                            "A. Inter-island trade",
+                            "B. Escaping Vietnam",
+                            "C. Traveling",
+                            "D. Fishing"
+                        ]
+                    },
+                    "correntAnswerIndex": 1
+                },
+                {
+                    "number": 2,
+                    "question": {
+                        "id": "2. Pengungsi Vietnam melarikan diri karena…",
+                        "en": "2. Vietnamese refugees fled because…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Mencari hiburan",
+                            "B. Berdagang",
+                            "C. Perang dan konflik",
+                            "D. Mengikuti lomba"
+                        ],
+                        "en": [
+                            "A. Seeking entertainment",
+                            "B. Trading",
+                            "C. War and conflict",
+                            "D. Participating in competitions"
+                        ]
+                    },
+                    "correntAnswerIndex": 2
+                },
+                {
+                    "number": 3,
+                    "question": {
+                        "id": "3. Perjalanan dengan perahu saat itu…",
+                        "en": "3. Traveling by boat at that time…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Aman dan nyaman",
+                            "B. Sangat cepat",
+                            "C. Gratis dan terjamin",
+                            "D. Berbahaya dan tidak pasti"
+                        ],
+                        "en": [
+                            "A. Safe and comfortable",
+                            "B. Very fast",
+                            "C. Free and secure",
+                            "D. Dangerous and uncertain"
+                        ]
+                    },
+                    "correntAnswerIndex": 3
+                },
+                {
+                    "number": 4,
+                    "question": {
+                        "id": "4. Istilah internasional untuk pengungsi yang melarikan diri lewat laut adalah…",
+                        "en": "4. The international term for refugees fleeing by sea is…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Pelaut",
+                            "B. Orang-orang yang naik perahu",
+                            "C. Pekerja laut",
+                            "D. Kamp pengungsi"
+                        ],
+                        "en": [
+                            "A. Sea traveler",
+                            "B. Boat people",
+                            "C. Ocean worker",
+                            "D. Refugee camp"
+                        ]
+                    },
+                    "correntAnswerIndex": 1
+                },
+                {
+                    "number": 5,
+                    "question": {
+                        "id": "5. Banyak perahu pengungsi berangkat dari…",
+                        "en": "5. Many refugee boats departed from…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Filipina",
+                            "B. Jepang",
+                            "C. Vietnam",
+                            "D. Korea"
+                        ],
+                        "en": [
+                            "A. Philippines",
+                            "B. Japan",
+                            "C. Vietnam",
+                            "D. Korea"
+                        ]
+                    },
+                    "correntAnswerIndex": 2
+                }
+            ]
+        },
+        {
+            "name": "refugee_barracks_vietora",
+            "quizzModel": [
+                {
+                    "number": 1,
+                    "question": {
+                        "id": "1. Barak di Kampung Vietnam digunakan oleh…",
+                        "en": "1. The barracks in Vietnam Village were used by…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Tentara Jepang",
+                            "B. Pengungsi Vietnam",
+                            "C. Pedagang lokal",
+                            "D. Wisatawan"
+                        ],
+                        "en": [
+                            "A. Japanese soldiers",
+                            "B. Vietnamese refugees",
+                            "C. Local traders",
+                            "D. Tourists"
+                        ]
+                    },
+                    "correntAnswerIndex": 1
+                },
+                {
+                    "number": 2,
+                    "question": {
+                        "id": "2. Barak dibangun pada masa…",
+                        "en": "2. The barracks were built during…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Masa penjajahan Belanda",
+                            "B. Masa kerajaan Melayu",
+                            "C. Krisis pengungsi Vietnam (1970-1990-an)",
+                            "D. Masa kemerdekaan Indonesia"
+                        ],
+                        "en": [
+                            "A. Dutch colonial period",
+                            "B. Malay kingdom period",
+                            "C. Vietnamese refugee crisis (1970s-1990s)",
+                            "D. Indonesian independence period"
+                        ]
+                    },
+                    "correntAnswerIndex": 2
+                },
+                {
+                    "number": 3,
+                    "question": {
+                        "id": "3. Fungsi utama barak adalah…",
+                        "en": "3. The main function of the barracks was…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Tempat latihan militer",
+                            "B. Tempat hiburan",
+                            "C. Tempat penyimpanan senjata",
+                            "D. Tempat tinggal sementara pengungsi"
+                        ],
+                        "en": [
+                            "A. Military training ground",
+                            "B. Entertainment venue",
+                            "C. Weapons storage area",
+                            "D. Temporary refugee housing"
+                        ]
+                    },
+                    "correntAnswerIndex": 3
+                },
+                {
+                    "number": 4,
+                    "question": {
+                        "id": "4. Kondisi kehidupan di barak saat itu…",
+                        "en": "4. Living conditions in the barracks at that time were…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Sepenuhnya modern",
+                            "B. Bebas tanpa aturan",
+                            "C. Sederhana dan terbatas",
+                            "D. Sangat mewah"
+                        ],
+                        "en": [
+                            "A. Completely modern",
+                            "B. Free and unregulated",
+                            "C. Simple and limited",
+                            "D. Very luxurious"
+                        ]
+                    },
+                    "correntAnswerIndex": 2
+                },
+                {
+                    "number": 5,
+                    "question": {
+                        "id": "5. Barak di Kampung Vietnam dibangun oleh…",
+                        "en": "5. The barracks in Vietnam Village were built by…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Perusahaan swasta",
+                            "B. Nelayan setempat",
+                            "C. Pemerintah Indonesia dan organisasi internasional",
+                            "D. Kerajaan Vietnam"
+                        ],
+                        "en": [
+                            "A. Private companies",
+                            "B. Local fishermen",
+                            "C. The Indonesian government and international organizations",
+                            "D. The Kingdom of Vietnam"
+                        ]
+                    },
+                    "correntAnswerIndex": 2
+                }
+            ]
+        },
+        {
+            "name": "car_vietora",
+            "quizzModel": [
+                {
+                    "number": 1,
+                    "question": {
+                        "id": "1. Mobil pickup di Kampung Vietnam digunakan oleh…",
+                        "en": "1. Pickup trucks in Vietnam Village were used by…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Wisatawan",
+                            "B. Petugas dan relawan",
+                            "C. Pedagang",
+                            "D. Nelayan"
+                        ],
+                        "en": [
+                            "A. Tourists",
+                            "B. Officials and volunteers",
+                            "C. Traders",
+                            "D. Fishermen"
+                        ]
+                    },
+                    "correntAnswerIndex": 1
+                },
+                {
+                    "number": 2,
+                    "question": {
+                        "id": "2. Fungsi mobil pickup saat itu adalah…",
+                        "en": "2. The function of pickup trucks at that time was…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Mengangkut wisatawan",
+                            "B. Bermain",
+                            "C. Mengangkut logistik bantuan",
+                            "D. Balapan"
+                        ],
+                        "en": [
+                            "A. Transporting tourists",
+                            "B. Playing",
+                            "C. Transporting relief supplies",
+                            "D. Racing"
+                        ]
+                    },
+                    "correntAnswerIndex": 2
+                },
+                {
+                    "number": 3,
+                    "question": {
+                        "id": "3. Bantuan yang diangkut biasanya berupa…",
+                        "en": "3. The aid transported usually consisted of…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Barang mewah",
+                            "B. Perhiasan",
+                            "C. Makanan dan kebutuhan hidup",
+                            "D. Mainan"
+                        ],
+                        "en": [
+                            "A. Luxury goods",
+                            "B. Jewelry",
+                            "C. Food and necessities",
+                            "D. Toys"
+                        ]
+                    },
+                    "correntAnswerIndex": 2
+                },
+                {
+                    "number": 4,
+                    "question": {
+                        "id": "4. Mobil pickup berperan penting dalam…",
+                        "en": "4. Pickup trucks played an important role in…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Hiburan pengungsi",
+                            "B. Distribusi bantuan",
+                            "C. Perdagangan bebas",
+                            "D. Perlombaan"
+                        ],
+                        "en": [
+                            "A. Refugee entertainment",
+                            "B. Aid distribution",
+                            "C. Free trade",
+                            "D. Racing"
+                        ]
+                    },
+                    "correntAnswerIndex": 1
+                },
+                {
+                    "number": 5,
+                    "question": {
+                        "id": "5. Keberadaan kendaraan ini menunjukkan adanya…",
+                        "en": "5. The presence of these vehicles indicates…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Hiburan modern",
+                            "B. Persaingan bisnis",
+                            "C. Dukungan kemanusiaan",
+                            "D. Perdagangan internasional"
+                        ],
+                        "en": [
+                            "A. Modern entertainment",
+                            "B. Business competition",
+                            "C. Humanitarian support",
+                            "D. International trade"
+                        ]
+                    },
+                    "correntAnswerIndex": 2
+                }
+            ]
+        },
+        {
+            "name": "youth_center_vietora",
+            "quizzModel": [
+                {
+                    "number": 1,
+                    "question": {
+                        "id": "1. Balai pemuda digunakan untuk…",
+                        "en": "1. The youth hall was used for…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Tempat hukuman",
+                            "B. Tempat militer",
+                            "C. Kegiatan sosial pengungsi",
+                            "D. Tempat penyimpanan"
+                        ],
+                        "en": [
+                            "A. Punishment",
+                            "B. Military shelter",
+                            "C. Refugee social activities",
+                            "D. Storage area"
+                        ]
+                    },
+                    "correntAnswerIndex": 2
+                },
+                {
+                    "number": 2,
+                    "question": {
+                        "id": "2. Kegiatan yang dilakukan di balai pemuda adalah…",
+                        "en": "2. The activities carried out at the youth hall were…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Penahanan",
+                            "B. Perdagangan",
+                            "C. Belajar dan berkumpul",
+                            "D. Latihan perang"
+                        ],
+                        "en": [
+                            "A. Detention",
+                            "B. Trade",
+                            "C. Study and gathering",
+                            "D. War training"
+                        ]
+                    },
+                    "correntAnswerIndex": 2
+                },
+                {
+                    "number": 3,
+                    "question": {
+                        "id": "3. Balai pemuda mencerminkan adanya…",
+                        "en": "3. The youth hall reflected…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Kehidupan militer",
+                            "B. Kehidupan sosial di kamp pengungsian",
+                            "C. Kehidupan industri",
+                            "D. Kehidupan kerajaan"
+                        ],
+                        "en": [
+                            "A. Military life",
+                            "B. Social life in the refugee camp",
+                            "C. Industrial life",
+                            "D. Royal life"
+                        ]
+                    },
+                    "correntAnswerIndex": 1
+                },
+                {
+                    "number": 4,
+                    "question": {
+                        "id": "4. Balai pemuda juga berfungsi sebagai tempat…",
+                        "en": "4. The youth hall also functioned as a place…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Mengadakan acara dan pertemuan",
+                            "B. Menyimpan senjata",
+                            "C. Menahan pengungsi",
+                            "D. Parkir kendaraan"
+                        ],
+                        "en": [
+                            "A. Holding events and meetings",
+                            "B. Storing weapons",
+                            "C. Detaining refugees",
+                            "D. Parking vehicles"
+                        ]
+                    },
+                    "correntAnswerIndex": 0
+                },
+                {
+                    "number": 5,
+                    "question": {
+                        "id": "5. Balai pemuda menunjukkan bahwa pengungsi tetap…",
+                        "en": "5. The presence of these vehicles indicates…"
+                    },
+                    "options": {
+                        "id": [
+                            "A. Hidup tanpa kegiatan",
+                            "B. Selalu bekerja paksa",
+                            "C. Beraktivitas dan bersosialisasi",
+                            "D. Tidak berinteraksi"
+                        ],
+                        "en": [
+                            "A. Living without activities",
+                            "B. Always working hard",
+                            "C. Being active and socializing",
+                            "D. Not interacting"
+                        ]
+                    },
+                    "correntAnswerIndex": 2
+                }
+            ]
+        }
+    ]
+}

@@ -9,6 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2231565606511019418}
+  - component: {fileID: -4311387120896915896}
+  - component: {fileID: -2366281374496678093}
+  - component: {fileID: 8221346941366765059}
   m_Layer: 0
   m_Name: ship_vietora
   m_TagString: Untagged
@@ -33,6 +36,85 @@ Transform:
   - {fileID: 7068992760707217165}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4311387120896915896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042701737497868688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d0281af068b61a46a614a8482bb9396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Quizz
+  quest:
+  - question: "1.Perahu digunakan oleh pengungsi untuk\u2026"
+    correctAnswer: 1
+    options:
+    - A. Berdagang antar pulau
+    - B. Melarikan diri dari Vietnam
+    - C. Berwisata
+    - D. Menangkap ikan
+  - question: "2.Pengungsi Vietnam melarikan diri karena\u2026"
+    correctAnswer: 2
+    options:
+    - A. Mencari hiburan
+    - B. Berdagang
+    - C. Perang dan konflik
+    - D. Mengikuti lomba
+  - question: "3.Perjalanan dengan perahu saat itu\u2026"
+    correctAnswer: 3
+    options:
+    - A. Aman dan nyaman
+    - B. Sangat cepat
+    - C. Gratis dan terjamin
+    - D. Berbahaya dan tidak pasti
+  - question: "4.Istilah internasional untuk pengungsi yang melarikan diri lewat
+      laut adalah\u2026"
+    correctAnswer: 1
+    options:
+    - A. Sea traveler
+    - B. Boat people
+    - C. Ocean worker
+    - D. Refugee camp
+  - question: "5.Banyak perahu pengungsi berangkat dari\u2026"
+    correctAnswer: 0
+    options:
+    - A. Filipina
+    - B. Jepang
+    - C. Vietnam
+    - D. Korea
+--- !u!114 &-2366281374496678093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042701737497868688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.CoreUtils::Unity.XR.CoreUtils.XROrigin
+  m_Camera: {fileID: 0}
+  m_OriginBaseGameObject: {fileID: 5042701737497868688}
+  m_CameraFloorOffsetObject: {fileID: 0}
+  m_RequestedTrackingOriginMode: 0
+  m_CameraYOffset: 1.1176
+--- !u!114 &8221346941366765059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042701737497868688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb898793194e03f4bb10dba03ec2cb70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.ARFoundation::UnityEngine.XR.ARFoundation.ARAnchor
+  m_DestroyOnRemoval: 1
 --- !u!1001 &1927827499786022036
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 2274844488300929213}
   - component: {fileID: 4197693533760359250}
   - component: {fileID: 9196836832770463114}
+  - component: {fileID: 3311859564657718665}
   - component: {fileID: -1617468568563026749}
   m_Layer: 0
   m_Name: Male NPC
@@ -341,6 +342,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 20.105536, y: 1, z: 13.276101}
   m_Center: {x: -0.08237679, y: 0, z: 0.03604253}
+--- !u!114 &3311859564657718665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6161454627967252357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb898793194e03f4bb10dba03ec2cb70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.ARFoundation::UnityEngine.XR.ARFoundation.ARAnchor
+  m_DestroyOnRemoval: 1
 --- !u!114 &-1617468568563026749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,9 +367,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f80dc12d5819429e3a90893c24d64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  VA: Lidia Eka Putri
   lines:
   - aku laki-laki, dan ini adalaah baris pertama
   - ada di game
+  isReadingCompleted: 0
 --- !u!1 &8345057172308666572
 GameObject:
   m_ObjectHideFlags: 0
