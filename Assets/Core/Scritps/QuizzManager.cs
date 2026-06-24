@@ -145,7 +145,7 @@ public class QuizzManager : MonoBehaviour
 
         ChangeToDefault();
 
-        if (GameManager.instance.currentLanguage == Language.en)
+        if (GameManager.instance.settings.Language == Language.en)
         {
             question.text = currentQuizz.question.en;
             for (int i = 0; i < options.Length; i++)
@@ -153,7 +153,7 @@ public class QuizzManager : MonoBehaviour
                 options[i].GetComponentInChildren<TextMeshProUGUI>().text = currentQuizz.options.en[i];
             }
         }
-        else if (GameManager.instance.currentLanguage == Language.id)
+        else if (GameManager.instance.settings.Language == Language.id)
         {
             question.text = currentQuizz.question.id;
             for (int i = 0; i < options.Length; i++)

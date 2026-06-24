@@ -1,0 +1,56 @@
+{
+    "startBtn": {
+        "en": "start",
+        "id": "mulai"
+    },
+    "settingsBtn": {
+        "en": "settings",
+        "id": "pengaturan"
+    },
+    "creditsBtn": {
+        "en": "credits",
+        "id": "kredits"
+    },
+    "exitBtn": {
+        "en": "exit",
+        "id": "keluar"
+    },
+    "closeBtn": {
+        "en": "close",
+        "id": "tutup"
+    },
+    "settings": {
+        "volume": {
+            "en": "volume",
+            "id": "volume"
+        },
+        "musicVolume": {
+            "en": "music volume",
+            "id": "volume musik"
+        },
+        "SFXVolume": {
+            "en": "SFX volume",
+            "id": "volume SFX"
+        },
+        "language": {
+            "en": "language",
+            "id": "bahasa"
+        },
+        "narrator": {
+            "en": "narrator",
+            "id": "narrator"
+        },
+        "textToSpeech": {
+            "en": "text to speech",
+            "id": "teks ke ucapan"
+        },
+        "on": {
+            "en": "on",
+            "id": "hidup"
+        },
+        "off": {
+            "en": "off",
+            "id": "mati"
+        }
+    }
+}

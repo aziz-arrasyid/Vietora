@@ -1,0 +1,131 @@
+{
+    "destination": [
+        {
+            "name": "woodenShips",
+            "narrator": "M. Daniel Alfariz",
+            "scene": [
+                {
+                    "no": 1,
+                    "en": [
+                        "In 1975, the Vietnam War ended with the fall of Saigon. The uncertain political and security\nsituation led thousands of Vietnamese to flee their country.",
+                        "Using small boats, they set sail in search of a safer place. These refugees became known as\nboat people.",
+                        "During their journey, many of them became stranded in various areas of the Riau Islands,\nsuch as Natuna and Tanjung Pinang.",
+                        "To handle the arrival of these refugees, the Indonesian government eventually concentrated\nthem on Galang Island, which later became a refugee camp for Vietnamese residents."
+                    ],
+                    "id": [
+                        "Pada tahun 1975, Perang Vietnam berakhir dengan jatuhnya Saigon. Kondisi politik dan\nkeamanan yang tidak menentu membuat ribuan warga Vietnam memutuskan untuk\nmeninggalkan negara mereka.",
+                        "Dengan menggunakan perahu-perahu kecil, mereka berlayar mencari tempat yang lebih\naman. Para pengungsi ini kemudian dikenal sebagai boat people.",
+                        "Dalam perjalanannya, banyak dari mereka terdampar di berbagai wilayah Kepulauan Riau,\nseperti Natuna dan Tanjung Pinang.",
+                        "Untuk menangani kedatangan para pengungsi tersebut, pemerintah Indonesia akhirnya\nmemusatkan mereka di Pulau Galang, yang kemudian menjadi lokasi kamp pengungsian\nbagi warga Vietnam."
+                    ]
+                },
+                {
+                    "no": 2,
+                    "en": [
+                        "The Vietnamese refugees arrived on Galang Island in very poor conditions.",
+                        "They traveled by sea in small boats carrying between 40 and 100 people.",
+                        "For months, they drifted aimlessly in the South China Sea, facing various threats such as\nbad weather, starvation, and limited supplies."
+                    ],
+                    "id": [
+                        "Para pengungsi Vietnam tiba di Pulau Galang dengan kondisi yang sangat memprihatinkan.",
+                        "Mereka menempuh perjalanan laut menggunakan perahu-perahu kecil yang membawa\nsekitar 40 hingga 100 orang dalam satu kapal.",
+                        "Selama berbulan-bulan, mereka terombang-ambing di Laut Cina Selatan tanpa tujuan yang\npasti, menghadapi berbagai ancaman seperti cuaca buruk, kelaparan, dan keterbatasan\npersediaan."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "refugeeBaracks",
+            "narrator": "M. Daniel Alfariz",
+            "scene": [
+                {
+                    "no": 1,
+                    "en": [
+                        "Upon arrival on Galang Island, the Vietnamese refugees received assistance and various\nfacilities to meet their living needs.",
+                        "The Indonesian government, in collaboration with UNHCR, then built a shelter to\naccommodate the thousands of refugees seeking protection.",
+                        "Over time, the area developed into a settlement known as Kampung Vietnam.",
+                        "This place became a temporary home for the refugees before they were transferred to their\ndestination country or repatriated back to Vietnam."
+                    ],
+                    "id": [
+                        "Setibanya di Pulau Galang, para pengungsi Vietnam memperoleh bantuan serta berbagai\nfasilitas untuk memenuhi kebutuhan hidup mereka.",
+                        "Pemerintah Indonesia, bekerja sama dengan UNHCR, kemudian membangun kawasan\npenampungan guna menampung ribuan pengungsi yang mencari perlindungan.",
+                        "Seiring berjalannya waktu, kawasan tersebut berkembang menjadi sebuah permukiman\nyang dikenal sebagai Kampung Vietnam.",
+                        "Tempat ini menjadi hunian sementara bagi para pengungsi sebelum mereka dipindahkan ke\nnegara tujuan atau dipulangkan kembali ke Vietnam."
+                    ]
+                },
+                {
+                    "no": 2,
+                    "en": [
+                        "In these simple barracks, the refugees were no longer just staying overnight, but were trying\nto rebuild their lives.",
+                        "Behind the narrow wooden partitions, stories and hopes were hidden.",
+                        "The laughter of children playing in the barracks corridors could be heard, trying to forget the\nlong journey and the trauma they had experienced.",
+                        "In another corner, parents were busy tidying up their belongings, trying to create an\natmosphere they could call home.",
+                        "Meanwhile, prayers continued to be said, asking for safety, peace, and certainty of a better\nfuture.",
+                        "This simple barracks was a silent witness to the long wait of the Vietnamese refugees during\ntheir life on Galang Island."
+                    ],
+                    "id": [
+                        "Di barak-barak sederhana ini, para pengungsi tidak lagi sekadar singgah, tetapi berusaha\nmembangun kembali kehidupan mereka.",
+                        "Di balik sekat-sekat kayu yang sempit, tersimpan berbagai kisah dan harapan.",
+                        "Terdengar tawa anak-anak yang bermain di lorong-lorong barak, mencoba melupakan\nperjalanan panjang dan trauma yang mereka alami.",
+                        "Di sudut lain, para orang tua sibuk merapikan barang-barang seadanya, berusaha\nmenciptakan suasana yang dapat mereka sebut sebagai rumah.",
+                        "Sementara itu, doa-doa terus dipanjatkan, memohon keselamatan, ketenangan, dan\nkepastian akan masa depan yang lebih baik.",
+                        "Barak sederhana ini menjadi saksi bisu penantian panjang para pengungsi Vietnam selama\nmereka menjalani kehidupan di Pulau Galang."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "car",
+            "narrator": "M. Daniel Alfariz",
+            "scene": [
+                {
+                    "no": 1,
+                    "en": [
+                        "In this refugee camp, the refugees also received various aid to support their daily lives.",
+                        "One of the most anticipated moments was the arrival of pick-up trucks carrying supplies and\nvarious construction supplies.",
+                        "The arrival of these vehicles was always greeted with enthusiasm because they contained\nfood, living supplies, and materials that could be used to build and repair their homes.",
+                        "This aid provided hope and helped the refugees live a better life on Galang Island."
+                    ],
+                    "id": [
+                        "Di kampung pengungsian ini, para pengungsi juga menerima berbagai bantuan untuk\nmenunjang kehidupan sehari-hari.",
+                        "Salah satu momen yang paling dinantikan adalah kedatangan mobil pick-up yang membawa\nlogistik dan berbagai kebutuhan pembangunan.",
+                        "Kehadiran kendaraan tersebut selalu disambut dengan antusias karena muatannya berisi\nbahan makanan, perlengkapan hidup, serta material yang dapat digunakan untuk\nmembangun dan memperbaiki tempat tinggal mereka.",
+                        "Bantuan-bantuan ini memberikan harapan dan membantu para pengungsi menjalani\nkehidupan di Pulau Galang dengan lebih baik."
+                    ]
+                },
+                {
+                    "no": 2,
+                    "en": [
+                        "These two trucks were silent witnesses to life in the refugee camp at that time.",
+                        "Every time these trucks arrived, the refugees would gather to receive the supplies and\nvarious aid distributed to them.",
+                        "Their arrival was always eagerly awaited because they brought necessities that helped them\nnavigate their daily lives amidst the uncertainty of the future."
+                    ],
+                    "id": [
+                        "Dua mobil inilah yang menjadi saksi bisu kehidupan di kamp pengungsian pada masa itu.",
+                        "Setiap kali kendaraan tersebut tiba, para pengungsi akan berkumpul untuk menerima\npembagian logistik dan berbagai bantuan yang disalurkan kepada mereka.",
+                        "Kehadirannya selalu dinantikan karena membawa kebutuhan yang membantu mereka\nmenjalani kehidupan sehari-hari di tengah ketidakpastian masa depan."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "youthCenter",
+            "narrator": "M. Daniel Alfariz",
+            "scene": [
+                {
+                    "no": 1,
+                    "en": [
+                        "The Youth Center has become a gathering place for refugee teenagers and children.",
+                        "Here, they fill their time with various positive activities, including studying together and\nparticipating in various educational activities.",
+                        "Amidst the uncertainty they face, this center provides a space for the younger generation to\ncontinue gaining knowledge, developing themselves, and maintaining hope for a better\nfuture."
+                    ],
+                    "id": [
+                        "Balai Pemuda menjadi salah satu tempat berkumpul bagi para remaja dan anak-anak\npengungsi.",
+                        "Di tempat ini, mereka mengisi waktu dengan berbagai kegiatan positif, termasuk belajar\nbersama dan mengikuti berbagai aktivitas pendidikan.",
+                        "Di tengah ketidakpastian yang mereka hadapi, balai ini memberikan ruang bagi generasi\nmuda untuk terus menimba ilmu, mengembangkan diri, dan menjaga harapan akan masa\ndepan yang lebih baik."
+                    ]
+                }                
+            ]
+        }
+    ]
+}
