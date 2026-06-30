@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 894396369acee7b49a26e145b079a862
+guid: 26de799822ad5ba4bb4566ff5d9559c0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: buttons_0
+      name: buttons 2_0
       rect:
         serializedVersion: 2
         x: 50
@@ -138,20 +138,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e83df06f587fbd1439c6507e16a58054
-      internalID: -1179329195
+      spriteID: acd49dc53deb15d49a62c5fb27a6b662
+      internalID: -912097386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buttons_1
+      name: buttons 2_1
       rect:
         serializedVersion: 2
         x: 300
         y: 467
         width: 111
-        height: 55
+        height: 53
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,8 +160,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4cc8f2b0d1bd5d3459500a9a3fb32d99
-      internalID: 1172213299
+      spriteID: 461c4cc6b0813aa47a71a00f88cf3160
+      internalID: 1713921708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons 2_2
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 468
+        width: 111
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ca236d2dc909754db6118bd80e2140f
+      internalID: -2093818523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons 2_3
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 163
+        width: 249
+        height: 245
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b11526b5cd6ef4f49a44378092c438bb
+      internalID: 1108228511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons 2_4
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 352
+        width: 79
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f2bfda3fa38ca543a77bde17eafb059
+      internalID: -1445154435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons 2_5
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 39
+        width: 249
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56f3e63da050b43409e738107a2a8d58
+      internalID: -145327212
       vertices: []
       indices: 
       edges: []
@@ -170,7 +258,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4cfd8cdf6ac36c043aea1e91cfdc36c4
+    spriteID: 77b8cadb8b48e5f4ead4dd3c779e29c3
     internalID: 0
     vertices: []
     indices: 
@@ -182,8 +270,12 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      buttons_0: -1179329195
-      buttons_1: 1172213299
+      buttons 2_0: -912097386
+      buttons 2_1: 1713921708
+      buttons 2_2: -2093818523
+      buttons 2_3: 1108228511
+      buttons 2_4: -1445154435
+      buttons 2_5: -145327212
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

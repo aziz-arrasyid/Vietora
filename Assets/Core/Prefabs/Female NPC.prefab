@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 7099382923439455848}
   - component: {fileID: 3871904200128125048}
   - component: {fileID: 2846106491583628865}
-  - component: {fileID: 3246305707101550633}
+  - component: {fileID: -8717638416320984053}
   m_Layer: 0
   m_Name: Female NPC
   m_TagString: Untagged
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.ARFoundation::UnityEngine.XR.ARFoundation.ARAnchor
   m_DestroyOnRemoval: 1
---- !u!114 &3246305707101550633
+--- !u!114 &-8717638416320984053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,9 +188,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f80dc12d5819429e3a90893c24d64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
-  VA: Lidia Eka Putri
-  lines:
-  - aku perempuan
+  status:
+    nameDestination: car
+    no: 1
   isReadingCompleted: 0
 --- !u!1 &6594128402895501211
 GameObject:

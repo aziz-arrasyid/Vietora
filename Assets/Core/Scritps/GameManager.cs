@@ -65,7 +65,9 @@ public class SceneDialog
 {
     public int no;
     public string[] en;
+    public string[] audioEN;
     public string[] id;
+    public string[] audioID;
 }
 
 [Serializable]

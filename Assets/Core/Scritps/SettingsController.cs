@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SettingsController : MonoBehaviour
 {
     public Action OnCloseBtnClicked;
-    
+
     [Header("UI Components")]
     public RectTransform panel;
     [SerializeField] private RectTransform toggleHandle;
@@ -130,7 +130,7 @@ public class SettingsController : MonoBehaviour
     #region Utility 
     private Color GetColorFromHex(string hex)
     {
-        if(ColorUtility.TryParseHtmlString(hex, out Color color))
+        if (ColorUtility.TryParseHtmlString(hex, out Color color))
         {
             return color;
         }

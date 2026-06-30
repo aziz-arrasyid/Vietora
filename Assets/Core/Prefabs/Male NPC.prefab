@@ -367,10 +367,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f80dc12d5819429e3a90893c24d64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
-  VA: Lidia Eka Putri
-  lines:
-  - aku laki-laki, dan ini adalaah baris pertama
-  - ada di game
+  status:
+    nameDestination: car
+    no: 1
   isReadingCompleted: 0
 --- !u!1 &8345057172308666572
 GameObject:
