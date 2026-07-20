@@ -10,10 +10,6 @@ public class ImageReader : MonoBehaviour
     [Header("Scripts")]
     [SerializeField] private WorldManager manager;
 
-    #region UI
-    private TextMeshProUGUI debuggingText;
-    #endregion
-
     #region AR
     private ARTrackedImageManager trackedImageManager;
     #endregion
@@ -23,11 +19,6 @@ public class ImageReader : MonoBehaviour
     private void Awake()
     {
         trackedImageManager = GetComponent<ARTrackedImageManager>();
-    }
-
-    private void Start()
-    {
-        debuggingText = manager.QRStatus;
     }
 
     private void OnEnable() => trackedImageManager.trackablesChanged.AddListener(OnTrackablesChanged);
@@ -43,15 +34,13 @@ public class ImageReader : MonoBehaviour
                 OnImage?.Invoke(trackedImage.referenceImage.name);
                 if(Enum.TryParse(trackedImage.referenceImage.name, out QRTextList newEnum))
                 {
-                    manager.objectActive.point = newEnum;
-                    manager.objectActive.active = true;
+                    manager.ObjectActive.Point = newEnum;
+                    manager.ObjectActive.Active = true;
                 }
-                debuggingText.text = trackedImage.referenceImage.name;
             }
             else
             {
-                manager.objectActive.active = false;
-                debuggingText.text = "null";
+                manager.ObjectActive.Active = false;
             }
         }
     }

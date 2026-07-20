@@ -4,13 +4,17 @@ using UnityEngine.UI;
 
 public class AnimatedDialogue : MonoBehaviour
 {
+    [SerializeField] DialogueManager dialogueManager;
     [Header("UI Components")]
     [SerializeField] private RectTransform dialogue;
     [SerializeField] private RectTransform logChatBtn;
     [SerializeField] private RectTransform dialogueBox;
     [SerializeField] private Button hideSeeBtn;
+    public GameObject nextBtnIcon;
 
     [Space]
+
+    [SerializeField] private VisibilityController visibilityController;
 
     [Header("Value")]
     [Range(0, 1)]
@@ -21,7 +25,7 @@ public class AnimatedDialogue : MonoBehaviour
     private CanvasGroup canvasGroupLogChatBtn;
     private CanvasGroup canvasGroupDialogueBox;
     private Sequence anim;
-    private bool slideGoDown;
+    public bool SlideGoDown { get; private set; }
     private float targetPosY;
     private float targetAlpha;
     private Vector3 targetRotHideSeeBtn;
@@ -45,9 +49,10 @@ public class AnimatedDialogue : MonoBehaviour
 
     private void AnimatedSlide()
     {
-        slideGoDown = !slideGoDown;
+        SoundManager.instance.PlaySFXSound(SoundManager.instance.clickSound);
+        SlideGoDown = !SlideGoDown;
 
-        if (slideGoDown)
+        if (SlideGoDown)
         {
             targetPosY = -330f;
             targetAlpha = 0f;
@@ -77,9 +82,9 @@ public class AnimatedDialogue : MonoBehaviour
 
     public void SetAnimatedGoDown(bool value)
     {
-        slideGoDown = value;
+        SlideGoDown = value;
 
-        if (slideGoDown)
+        if (SlideGoDown)
         {
             targetPosY = -450f;
             targetAlpha = 0f;
@@ -90,6 +95,7 @@ public class AnimatedDialogue : MonoBehaviour
         else
         {
             dialogue.gameObject.SetActive(true);
+            nextBtnIcon.SetActive(true);
             targetPosY = 127f;
             targetAlpha = 1f;
             startRotHideSeeBtn = new(0, 0, 60);
@@ -97,17 +103,34 @@ public class AnimatedDialogue : MonoBehaviour
             targetEase = Ease.OutSine;
         }
 
-        anim = Sequence.Create();
-
-        anim
-        .Group(Tween.UIAnchoredPositionY(dialogue, endValue: targetPosY, duration: slideDuration, ease: targetEase))
-        .Group(Tween.LocalEulerAngles(hideSeeBtn.transform, startValue: startRotHideSeeBtn, endValue: targetRotHideSeeBtn, duration: slideDuration, ease: targetEase))
-        .Group(Tween.Alpha(canvasGroupLogChatBtn, endValue: targetAlpha, duration: alphaDuration, ease: targetEase))
-        .Group(Tween.Alpha(canvasGroupDialogueBox, endValue: targetAlpha, duration: alphaDuration, ease: targetEase));
-    
-        if(slideGoDown)
+        if (visibilityController.Visibility)
         {
-            anim.OnComplete(target: dialogue, target => target.gameObject.SetActive(false));
+            if (anim.isAlive) anim.Stop();
+
+            anim = Sequence.Create();
+
+            anim
+            .Group(Tween.UIAnchoredPositionY(dialogue, endValue: targetPosY, duration: slideDuration, ease: targetEase))
+            .Group(Tween.LocalEulerAngles(hideSeeBtn.transform, startValue: startRotHideSeeBtn, endValue: targetRotHideSeeBtn, duration: slideDuration, ease: targetEase))
+            .Group(Tween.Alpha(canvasGroupLogChatBtn, endValue: targetAlpha, duration: alphaDuration, ease: targetEase))
+            .Group(Tween.Alpha(canvasGroupDialogueBox, endValue: targetAlpha, duration: alphaDuration, ease: targetEase));
+
+            if (SlideGoDown)
+            {
+                anim.OnComplete(target: this, target => 
+                {
+                    target.dialogue.gameObject.SetActive(false);
+                    dialogueManager.QuizzAfterReadingCompletedAll();
+                });
+            }
         }
+        else
+        {
+            dialogue.anchoredPosition = new(dialogue.anchoredPosition.x, targetPosY);
+            hideSeeBtn.transform.eulerAngles = startRotHideSeeBtn;
+            canvasGroupLogChatBtn.alpha = targetAlpha;
+            canvasGroupDialogueBox.alpha = targetAlpha;
+        }
+
     }
 }

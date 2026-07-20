@@ -1,4 +1,4 @@
- using System;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -12,18 +12,13 @@ public class Mapping : MonoBehaviour
     public static event Action<string, bool, Pose> OnQRMapping;
     [Header("Scritps")]
     [SerializeField] private WorldManager manager;
+    [SerializeField] private AnimatedNotification animatedNotification;
     [Header("AR Components")]
     [SerializeField] private ARPlaneManager planeManager;
     [SerializeField] private ARRaycastManager raycastManager;
 
-    #region UI
-    private TextMeshProUGUI debuggingText;
-    #endregion
-
     private void Start()
     {
-        debuggingText = manager.mappingStatus;
-
         if (planeManager == null)
         {
             planeManager = GetComponent<ARPlaneManager>();
@@ -60,16 +55,14 @@ public class Mapping : MonoBehaviour
 
         Pose pose = new();
 
-        if (raycastManager.Raycast(ray, hits, TrackableType.Planes))
+        if (raycastManager.Raycast(ray, hits, TrackableType.Planes | TrackableType.PlaneWithinInfinity | TrackableType.PlaneWithinPolygon))
         {
             pose = hits[0].pose;
             OnQRMapping?.Invoke(text, true, pose);
-            debuggingText.text = $"<color=green>Below player is scanned: {pose.position}</color=green>";
         }
         else
         {
             OnQRMapping?.Invoke(text, false, pose);
-            debuggingText.text = "<color=red>Below player is not scanned</color=red>";
         }
     }
 }

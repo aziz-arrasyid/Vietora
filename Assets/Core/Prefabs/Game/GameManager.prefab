@@ -61,6 +61,22 @@ MonoBehaviour:
     closeBtn:
       en: 
       id: 
+    submitBtn:
+      en: 
+      id: 
+    quizzTime:
+      en: 
+      id: 
+    homePanel:
+      question:
+        en: 
+        id: 
+      yesBtn:
+        en: 
+        id: 
+      noBtn:
+        en: 
+        id: 
     settings:
       volume:
         en: 
@@ -97,3 +113,4 @@ MonoBehaviour:
     SFXVolume: 0
     narratorVolume: 0
   quizzModelData: []
+  mainAudioMixer: {fileID: 24100000, guid: 679d103e2169d9045a44636b842ee8b7, type: 2}

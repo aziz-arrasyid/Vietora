@@ -7,7 +7,6 @@ using UnityEngine;
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private AnimatedDialogue animatedDialogue;
-    [SerializeField] private AudioSource audioSource;
     [SerializeField] private SpawnManager spawnManager;
     [SerializeField] private QuizzManager quizzManager;
     [Header("UI Components Dialogue")]
@@ -22,6 +21,7 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private string[] currentLines;
     [SerializeField] private SceneDialog sceneDialog;
+    private AudioSource audioSource;
     private int index;
     private Dialogue dialogue;
     private Coroutine typingCoroutine;
@@ -39,38 +39,60 @@ public class DialogueManager : MonoBehaviour
     private void OnDisable() => AreaZone.PlayerInside -= OnDialogue;
     private void OnDialogue(bool status, GameObject obj)
     {
-        if (status)
+        if (!quizzManager.QuizzStarted)
         {
-            Dialogue.Status dialogueStatus = obj.GetComponent<Dialogue>().status;
-            destinationData = GameManager.instance.destination.FirstOrDefault(data => data.name == dialogueStatus.nameDestination);
-            sceneDialog = destinationData.scene.FirstOrDefault(data => data.no == dialogueStatus.no);
-
-            currentLines = GameManager.instance.settings.Language == Language.en ? sceneDialog.en : sceneDialog.id;
-
-            animatedDialogue.SetAnimatedGoDown(false);
-            StartDialogue();
-            ReadyChatLog(obj);
-            currentObj = obj;
-
-
-        }
-        else
-        {
-            if (typingCoroutine != null)
+            if (status)
             {
-                StopCoroutine(typingCoroutine);
-                typingCoroutine = null;
-            }
+                Dialogue.Status dialogueStatus = obj.GetComponent<Dialogue>().status;
+                destinationData = GameManager.instance.destination.FirstOrDefault(data => data.name == dialogueStatus.nameDestination);
+                sceneDialog = destinationData.scene.FirstOrDefault(data => data.no == dialogueStatus.no);
 
-            sceneDialog = null;
-            animatedDialogue.SetAnimatedGoDown(true);
-            audioSource.Stop();
+                currentLines = GameManager.instance.settings.Language == Language.en ? sceneDialog.en : sceneDialog.id;
+
+                animatedDialogue.SetAnimatedGoDown(false);
+                quizzManager.DisableQuizzBtnWhenDialogRun(true);
+                StartDialogue();
+                ReadyChatLog(obj);
+                currentObj = obj;
+
+
+            }
+            else
+            {
+                if (typingCoroutine != null)
+                {
+                    StopCoroutine(typingCoroutine);
+                    typingCoroutine = null;
+                }
+
+                quizzManager.DisableQuizzBtnWhenDialogRun(false);
+                sceneDialog = null;
+                animatedDialogue.SetAnimatedGoDown(true);
+                audioSource.Stop();
+            }
+        }
+    }
+
+    private void Start()
+    {
+        if (audioSource == null)
+        {
+            audioSource = SoundManager.instance.narratorSource;
         }
     }
 
     private void StartAudioDialog(DestinationData destinationData)
     {
+        if (audioSource == null)
+        {
+            audioSource = SoundManager.instance.narratorSource;
+        }
+
+        if (audioSource == null) return;
+
         audioSource.Stop();
+
+        audioSource.mute = !GameManager.instance.settings.Narrator;
 
         langFolder = GameManager.instance.settings.Language == Language.en ? "EN" : "ID";
         desFolder = destinationData.name;
@@ -78,7 +100,7 @@ public class DialogueManager : MonoBehaviour
         audioPath = $"AudioDialog/{langFolder}/{desFolder}/{audioFolder}";
 
         AudioClip audioClip = Resources.Load<AudioClip>(audioPath);
-        Debug.Log(audioClip);
+
         if (audioClip != null)
         {
             audioSource.clip = audioClip;
@@ -104,19 +126,32 @@ public class DialogueManager : MonoBehaviour
                 parent.isReadingCompletedAll = check;
 
                 spawnManager.objectSpawned[parentIndex] = parent;
-
-                if (check)
-                {
-                    quizzManager.QuizzReady(parent.QRText.ToString());
-                }
             }
         }
+    }
 
+    public void QuizzAfterReadingCompletedAll()
+    {
+        GameObject parentObj = currentObj.transform.parent.gameObject;
+        int parentIndex = spawnManager.objectSpawned.FindIndex(o => o.parentObject == parentObj);
+
+        if (parentIndex != -1)
+        {
+            QRGrouping parent = spawnManager.objectSpawned[parentIndex];
+
+            if (parent.isReadingCompletedAll)
+            {
+                if (quizzManager.quizzModelData.alreadyCompleted) return;
+
+                quizzManager.AnimatedQuizzTime();
+            }
+        }
     }
 
     #region Dialogue
     public void OnNextButtonClicked()
     {
+        SoundManager.instance.PlaySFXSound(SoundManager.instance.clickSound);
         if (textLine.text == currentLines[index])
         {
             NextLine();
@@ -130,6 +165,13 @@ public class DialogueManager : MonoBehaviour
             }
 
             textLine.text = currentLines[index];
+
+            if (index == currentLines.Length - 1)
+            {
+                animatedDialogue.nextBtnIcon.SetActive(false);
+                dialogue.isReadingCompleted = true;
+                CheckReadingCompleted(currentObj);
+            }
         }
     }
 
@@ -156,26 +198,33 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeLine()
     {
+        if (index == currentLines.Length - 1)
+        {
+            animatedDialogue.nextBtnIcon.SetActive(false);
+        }
+
         foreach (char c in currentLines[index].ToCharArray())
         {
             textLine.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
+        if (textLine.text == currentLines[index])
+        {
+            if (index == currentLines.Length - 1)
+            {
+                dialogue.isReadingCompleted = true;
+                CheckReadingCompleted(currentObj);
+            }
+        }
     }
 
     private void NextLine()
     {
-        if (index < currentLines[index].Length - 1)
+        if (index < currentLines.Length - 1)
         {
             index++;
             textLine.text = string.Empty;
             TypingCoroutine();
-        }
-        else
-        {
-            dialogueBox.SetActive(false);
-            dialogue.isReadingCompleted = true;
-            CheckReadingCompleted(currentObj);
         }
     }
     #endregion
@@ -183,6 +232,7 @@ public class DialogueManager : MonoBehaviour
     #region Chat Log
     public void OnChatLogClicked()
     {
+        SoundManager.instance.PlaySFXSound(SoundManager.instance.clickSound);
         chatLogContent.SetActive(true);
         dialogueBox.SetActive(false);
         dialogue.isReadingCompleted = true;
@@ -191,6 +241,7 @@ public class DialogueManager : MonoBehaviour
 
     public void OnCloseChatLogClicked()
     {
+        SoundManager.instance.PlaySFXSound(SoundManager.instance.clickSound);
         chatLogContent.SetActive(false);
         dialogueBox.SetActive(true);
     }

@@ -2,15 +2,21 @@ using System;
 using PrimeTween;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class SettingsController : MonoBehaviour
 {
+    [Header("Audio Mixer")]
+    // [SerializeField] private AudioSource narratorSource;
+    // [SerializeField] private AudioMixer mainAudioMixer;
     public Action OnCloseBtnClicked;
 
     [Header("UI Components")]
     public RectTransform panel;
     [SerializeField] private RectTransform toggleHandle;
+    [SerializeField] private Sprite toggleNarratorOn;
+    [SerializeField] private Sprite toggleNarratorOff;
     [SerializeField] private Image bgImageToggle;
     [SerializeField] private Image languageFlags;
     [Space]
@@ -26,6 +32,7 @@ public class SettingsController : MonoBehaviour
     [SerializeField] private Slider narratorSlider;
     [Space]
     [Header("Text Display")]
+    [SerializeField] private TextMeshProUGUI settingsTitle;
     [SerializeField] private TextMeshProUGUI closeBtnText;
     [SerializeField] private TextMeshProUGUI volumeTitle;
     [SerializeField] private TextMeshProUGUI volumeNarratorTitle;
@@ -44,21 +51,12 @@ public class SettingsController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI languageValueText;
     [SerializeField] private TextMeshProUGUI narratorValueText;
 
-    private readonly float onPosHandleX = 60f;
-    private readonly float offPosHandleX = -60f;
-    private Color onColorHandle;
-    private Color offColorHandle;
-    private Color onColorBGImageToggle;
-    private Color offColorBGImageToggle;
+    private readonly float onPosHandleX = 55f;
+    private readonly float offPosHandleX = -55f;
+    private Tween transitionToggleHandle;
 
     private void Start()
     {
-        onColorHandle = GetColorFromHex("#fe0000");
-        offColorHandle = GetColorFromHex("#505050");
-
-        onColorBGImageToggle = GetColorFromHex("#3f4a78");
-        offColorBGImageToggle = GetColorFromHex("#dadada");
-
         toggleNarrator.onValueChanged.AddListener(OnToggleNarratorChanged);
 
         musicSlider.onValueChanged.AddListener((value) => OnSliderValueChanged(VolumesType.musicVolume, musicValueText, value));
@@ -72,6 +70,7 @@ public class SettingsController : MonoBehaviour
 
         GameManager.instance.settings.OnLangChanged += DisplayText;
         SettingsOn();
+        DisplayText();
     }
 
     private void SettingsOn()
@@ -91,6 +90,7 @@ public class SettingsController : MonoBehaviour
         {
             currentIndex--;
             GameManager.instance.settings.Language = (Language)currentIndex;
+            SoundManager.instance.PlaySFXSound(SoundManager.instance.clickSound);
             OnLanguageChanged(currentIndex);
         }
     }
@@ -98,10 +98,11 @@ public class SettingsController : MonoBehaviour
     private void OnRightLanguageBtnClicked()
     {
         int currentIndex = (int)GameManager.instance.settings.Language;
-        if (currentIndex < System.Enum.GetValues(typeof(Language)).Length - 1)
+        if (currentIndex < Enum.GetValues(typeof(Language)).Length - 1)
         {
             currentIndex++;
             GameManager.instance.settings.Language = (Language)currentIndex;
+            SoundManager.instance.PlaySFXSound(SoundManager.instance.clickSound);
             OnLanguageChanged(currentIndex);
         }
     }
@@ -111,6 +112,7 @@ public class SettingsController : MonoBehaviour
         Language lang = GameManager.instance.settings.Language;
         var textData = GameManager.instance.localizedMainMenuText;
 
+        settingsTitle.text = textData.settings.settings.GetText(lang);
         volumeTitle.text = textData.settings.volume.GetText(lang);
         volumeNarratorTitle.text = textData.settings.volume.GetText(lang);
         musicVolumeText.text = textData.settings.musicVolume.GetText(lang);
@@ -128,14 +130,14 @@ public class SettingsController : MonoBehaviour
     }
 
     #region Utility 
-    private Color GetColorFromHex(string hex)
-    {
-        if (ColorUtility.TryParseHtmlString(hex, out Color color))
-        {
-            return color;
-        }
-        return Color.white;
-    }
+    // private Color GetColorFromHex(string hex)
+    // {
+    //     if (ColorUtility.TryParseHtmlString(hex, out Color color))
+    //     {
+    //         return color;
+    //     }
+    //     return Color.white;
+    // }
 
     private void SetValueSlider(Slider slider, TextMeshProUGUI text, float data)
     {
@@ -156,12 +158,15 @@ public class SettingsController : MonoBehaviour
         {
             case VolumesType.musicVolume:
                 GameManager.instance.settings.musicVolume = value;
+                GameManager.instance.LoadVolumeToMixer(type, value);
                 break;
             case VolumesType.SFXVolume:
                 GameManager.instance.settings.SFXVolume = value;
+                GameManager.instance.LoadVolumeToMixer(type, value);
                 break;
             case VolumesType.narratorVolume:
                 GameManager.instance.settings.narratorVolume = value;
+                GameManager.instance.LoadVolumeToMixer(type, value);
                 break;
 
         }
@@ -171,40 +176,52 @@ public class SettingsController : MonoBehaviour
 
     private void SetToggleNarrator(Toggle narrator)
     {
-        bool isOn = GameManager.instance.settings.narrator;
+        bool isOn = GameManager.instance.settings.Narrator;
         narrator.SetIsOnWithoutNotify(isOn);
 
         float targetX = isOn ? onPosHandleX : offPosHandleX;
-        Color targetColor = isOn ? onColorHandle : offColorHandle;
-        Color targetBGColor = isOn ? onColorBGImageToggle : offColorBGImageToggle;
+        Sprite newSprite = isOn ? toggleNarratorOn : toggleNarratorOff;
 
         Vector2 newPos = toggleHandle.anchoredPosition;
         newPos.x = targetX;
 
         toggleHandle.anchoredPosition = newPos;
-        toggleHandle.GetComponent<Image>().color = targetColor;
-        bgImageToggle.color = targetBGColor;
+        Image image = toggleHandle.GetComponent<Image>();
+        float amount = isOn ? 1f : 0f;
+        image.material.SetFloat("_Amount", amount);
     }
 
     private void OnToggleNarratorChanged(bool isOn)
     {
         // Toggle Handle
         float targetX = isOn ? onPosHandleX : offPosHandleX;
-        Color targetColor = isOn ? onColorHandle : offColorHandle;
         Image image = toggleHandle.GetComponent<Image>();
+        float duration = 0.15f;
 
-        Vector2 newPos = toggleHandle.anchoredPosition;
-        newPos.x = targetX;
+        Tween.UIAnchoredPositionX(toggleHandle, endValue: targetX, duration: duration, ease: Ease.InOutQuad);
+        SoundManager.instance.PlaySFXSound(SoundManager.instance.clickSound);
 
-        Tween.UIAnchoredPosition(toggleHandle, endValue: newPos, duration: 0.5f, ease: Ease.OutBack);
-        Tween.Color(image, endValue: targetColor, duration: 0.5f, ease: Ease.InOutBack);
+        float startValue = image.material.GetFloat("_Amount");
+        float endValue = isOn ? 1f : 0f;
 
-        // Toggle Background
-        Color targetBGColor = isOn ? onColorBGImageToggle : offColorBGImageToggle;
-        Tween.Color(bgImageToggle, endValue: targetBGColor, duration: 0.5f, ease: Ease.InOutQuad);
+        transitionToggleHandle.Stop();
 
-        GameManager.instance.settings.narrator = isOn;
+        transitionToggleHandle = Tween.Custom(
+            target: image.material,
+            startValue: startValue,
+            endValue: endValue,
+            duration: duration,
+            onValueChange: (target, value) =>
+            {
+                target.SetFloat("_Amount", value);
+            }
+        );
+
+
+        GameManager.instance.settings.Narrator = isOn;
         GameManager.instance.SaveData<Settings>("settings", GameManager.instance.settings);
+
+        // narratorSource.
     }
 
     private void OnLanguageChanged(int index)

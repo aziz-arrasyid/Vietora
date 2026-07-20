@@ -6,8 +6,8 @@
                 {
                     "number": 1,
                     "question": {
-                        "id": "1. Perahu digunakan oleh pengungsi untuk…",
-                        "en": "1. Boats were used by refugees for…"
+                        "id": "Perahu digunakan oleh pengungsi untuk…",
+                        "en": "Boats were used by refugees for…"
                     },
                     "options": {
                         "id": [
@@ -28,8 +28,8 @@
                 {
                     "number": 2,
                     "question": {
-                        "id": "2. Pengungsi Vietnam melarikan diri karena…",
-                        "en": "2. Vietnamese refugees fled because…"
+                        "id": "Pengungsi Vietnam melarikan diri karena…",
+                        "en": "Vietnamese refugees fled because…"
                     },
                     "options": {
                         "id": [
@@ -50,8 +50,8 @@
                 {
                     "number": 3,
                     "question": {
-                        "id": "3. Perjalanan dengan perahu saat itu…",
-                        "en": "3. Traveling by boat at that time…"
+                        "id": "Perjalanan dengan perahu saat itu…",
+                        "en": "Traveling by boat at that time…"
                     },
                     "options": {
                         "id": [
@@ -72,8 +72,8 @@
                 {
                     "number": 4,
                     "question": {
-                        "id": "4. Istilah internasional untuk pengungsi yang melarikan diri lewat laut adalah…",
-                        "en": "4. The international term for refugees fleeing by sea is…"
+                        "id": "Istilah internasional untuk pengungsi yang melarikan diri lewat laut adalah…",
+                        "en": "The international term for refugees fleeing by sea is…"
                     },
                     "options": {
                         "id": [
@@ -94,8 +94,8 @@
                 {
                     "number": 5,
                     "question": {
-                        "id": "5. Banyak perahu pengungsi berangkat dari…",
-                        "en": "5. Many refugee boats departed from…"
+                        "id": "Banyak perahu pengungsi berangkat dari…",
+                        "en": "Many refugee boats departed from…"
                     },
                     "options": {
                         "id": [
@@ -121,8 +121,8 @@
                 {
                     "number": 1,
                     "question": {
-                        "id": "1. Barak di Kampung Vietnam digunakan oleh…",
-                        "en": "1. The barracks in Vietnam Village were used by…"
+                        "id": "Barak di Kampung Vietnam digunakan oleh…",
+                        "en": "The barracks in Vietnam Village were used by…"
                     },
                     "options": {
                         "id": [
@@ -143,8 +143,8 @@
                 {
                     "number": 2,
                     "question": {
-                        "id": "2. Barak dibangun pada masa…",
-                        "en": "2. The barracks were built during…"
+                        "id": "Barak dibangun pada masa…",
+                        "en": "The barracks were built during…"
                     },
                     "options": {
                         "id": [
@@ -165,8 +165,8 @@
                 {
                     "number": 3,
                     "question": {
-                        "id": "3. Fungsi utama barak adalah…",
-                        "en": "3. The main function of the barracks was…"
+                        "id": "Fungsi utama barak adalah…",
+                        "en": "The main function of the barracks was…"
                     },
                     "options": {
                         "id": [
@@ -187,8 +187,8 @@
                 {
                     "number": 4,
                     "question": {
-                        "id": "4. Kondisi kehidupan di barak saat itu…",
-                        "en": "4. Living conditions in the barracks at that time were…"
+                        "id": "Kondisi kehidupan di barak saat itu…",
+                        "en": "Living conditions in the barracks at that time were…"
                     },
                     "options": {
                         "id": [
@@ -209,8 +209,8 @@
                 {
                     "number": 5,
                     "question": {
-                        "id": "5. Barak di Kampung Vietnam dibangun oleh…",
-                        "en": "5. The barracks in Vietnam Village were built by…"
+                        "id": "Barak di Kampung Vietnam dibangun oleh…",
+                        "en": "The barracks in Vietnam Village were built by…"
                     },
                     "options": {
                         "id": [
@@ -236,8 +236,8 @@
                 {
                     "number": 1,
                     "question": {
-                        "id": "1. Mobil pickup di Kampung Vietnam digunakan oleh…",
-                        "en": "1. Pickup trucks in Vietnam Village were used by…"
+                        "id": "Mobil pickup di Kampung Vietnam digunakan oleh…",
+                        "en": "Pickup trucks in Vietnam Village were used by…"
                     },
                     "options": {
                         "id": [
@@ -258,8 +258,8 @@
                 {
                     "number": 2,
                     "question": {
-                        "id": "2. Fungsi mobil pickup saat itu adalah…",
-                        "en": "2. The function of pickup trucks at that time was…"
+                        "id": "Fungsi mobil pickup saat itu adalah…",
+                        "en": "The function of pickup trucks at that time was…"
                     },
                     "options": {
                         "id": [
@@ -280,8 +280,8 @@
                 {
                     "number": 3,
                     "question": {
-                        "id": "3. Bantuan yang diangkut biasanya berupa…",
-                        "en": "3. The aid transported usually consisted of…"
+                        "id": "Bantuan yang diangkut biasanya berupa…",
+                        "en": "The aid transported usually consisted of…"
                     },
                     "options": {
                         "id": [
@@ -302,8 +302,8 @@
                 {
                     "number": 4,
                     "question": {
-                        "id": "4. Mobil pickup berperan penting dalam…",
-                        "en": "4. Pickup trucks played an important role in…"
+                        "id": "Mobil pickup berperan penting dalam…",
+                        "en": "Pickup trucks played an important role in…"
                     },
                     "options": {
                         "id": [
@@ -324,8 +324,8 @@
                 {
                     "number": 5,
                     "question": {
-                        "id": "5. Keberadaan kendaraan ini menunjukkan adanya…",
-                        "en": "5. The presence of these vehicles indicates…"
+                        "id": "Keberadaan kendaraan ini menunjukkan adanya…",
+                        "en": "The presence of these vehicles indicates…"
                     },
                     "options": {
                         "id": [
@@ -351,8 +351,8 @@
                 {
                     "number": 1,
                     "question": {
-                        "id": "1. Balai pemuda digunakan untuk…",
-                        "en": "1. The youth hall was used for…"
+                        "id": "Balai pemuda digunakan untuk…",
+                        "en": "The youth hall was used for…"
                     },
                     "options": {
                         "id": [
@@ -373,8 +373,8 @@
                 {
                     "number": 2,
                     "question": {
-                        "id": "2. Kegiatan yang dilakukan di balai pemuda adalah…",
-                        "en": "2. The activities carried out at the youth hall were…"
+                        "id": "Kegiatan yang dilakukan di balai pemuda adalah…",
+                        "en": "The activities carried out at the youth hall were…"
                     },
                     "options": {
                         "id": [
@@ -395,8 +395,8 @@
                 {
                     "number": 3,
                     "question": {
-                        "id": "3. Balai pemuda mencerminkan adanya…",
-                        "en": "3. The youth hall reflected…"
+                        "id": "Balai pemuda mencerminkan adanya…",
+                        "en": "The youth hall reflected…"
                     },
                     "options": {
                         "id": [
@@ -417,8 +417,8 @@
                 {
                     "number": 4,
                     "question": {
-                        "id": "4. Balai pemuda juga berfungsi sebagai tempat…",
-                        "en": "4. The youth hall also functioned as a place…"
+                        "id": "Balai pemuda juga berfungsi sebagai tempat…",
+                        "en": "The youth hall also functioned as a place…"
                     },
                     "options": {
                         "id": [
@@ -439,8 +439,8 @@
                 {
                     "number": 5,
                     "question": {
-                        "id": "5. Balai pemuda menunjukkan bahwa pengungsi tetap…",
-                        "en": "5. The presence of these vehicles indicates…"
+                        "id": "Balai pemuda menunjukkan bahwa pengungsi tetap…",
+                        "en": "The presence of these vehicles indicates…"
                     },
                     "options": {
                         "id": [

@@ -3,15 +3,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using PrimeTween;
 
-public enum VolumesType
-{
-    musicVolume,
-    SFXVolume,
-    narratorVolume
-}
-
 public class HomeManager : MonoBehaviour
 {
+    [SerializeField] private GameObject gameLogo;
     [SerializeField] private GameObject mainMenu;
     [Header("Button")]
     [SerializeField] private Button startBtn;
@@ -20,6 +14,8 @@ public class HomeManager : MonoBehaviour
     [SerializeField] private Button exitBtn;
     [SerializeField] private Button closeBtnCredits;
     [SerializeField] private Button closeBtnSettings;
+    [SerializeField] private Button noBtnConfirmExit;
+    [SerializeField] private Button yesBtnConfirmExit;
     [Space]
     [Header("Text Display")]
     [SerializeField] private TextMeshProUGUI startBtnText;
@@ -27,10 +23,14 @@ public class HomeManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI creditsBtnText;
     [SerializeField] private TextMeshProUGUI exitBtnText;
     [SerializeField] private TextMeshProUGUI closeBtnText;
+    [SerializeField] private TextMeshProUGUI yesBtnConfirmExitText;
+    [SerializeField] private TextMeshProUGUI noBtnConfirmExitText;
+    [SerializeField] private TextMeshProUGUI questionConfirmExitText;
     [Space]
     [Header("Panel")]
     [SerializeField] private RectTransform creditsPanel;
-    [SerializeField] private SettingsController settingsController; 
+    [SerializeField] private SettingsController settingsController;
+    [SerializeField] private RectTransform exitPanel;
 
     private bool isPanelOpen;
 
@@ -43,10 +43,20 @@ public class HomeManager : MonoBehaviour
         creditsBtn.onClick.AddListener(OnCreditsBtnClicked);
         exitBtn.onClick.AddListener(OnExitBtnClicked);
         closeBtnCredits.onClick.AddListener(OnCloseCreditsBtnClicked);
+        noBtnConfirmExit.onClick.AddListener(OnNoBtnConfirmExit);
+        yesBtnConfirmExit.onClick.AddListener(OnYesBtnConfirmBtn);
 
         settingsController.OnCloseBtnClicked += OnCloseSettingsBtnClicked;
 
         GameManager.instance.settings.OnLangChanged += DisplayText;
+
+        SoundManager.instance.ChangeBGM(SoundManager.instance.bgmHome);
+
+        if (SoundManager.instance.narratorSource.clip != null)
+        {
+            SoundManager.instance.narratorSource.Stop();
+            SoundManager.instance.narratorSource.clip = null;
+        }
     }
 
     private void DisplayText()
@@ -58,39 +68,69 @@ public class HomeManager : MonoBehaviour
         settingsBtnText.text = textData.settingsBtn.GetText(lang);
         creditsBtnText.text = textData.creditsBtn.GetText(lang);
         exitBtnText.text = textData.exitBtn.GetText(lang);
+        yesBtnConfirmExitText.text = textData.exitPanel.yesBtn.GetText(lang);
+        noBtnConfirmExitText.text = textData.exitPanel.noBtn.GetText(lang);
+        questionConfirmExitText.text = textData.exitPanel.question.GetText(lang);
 
     }
 
     #region Main Menu Button
     public void OnStartBtnClicked()
     {
-        Debug.Log("Start button klik!");
+        SoundManager.instance.PlaySFXSound(SoundManager.instance.clickSound);
+        SceneTransitionManager.instance.ChangeScene("World");
     }
 
     public void OnSettingsBtnClicked()
     {
+        SoundManager.instance.PlaySFXSound(SoundManager.instance.clickSound);
         OpenPanel(settingsController.panel);
     }
 
     public void OnCreditsBtnClicked()
     {
+        SoundManager.instance.PlaySFXSound(SoundManager.instance.clickSound);
         OpenPanel(creditsPanel);
     }
 
     public void OnExitBtnClicked()
     {
-        Debug.Log("Exit button klik!");
+        SoundManager.instance.PlaySFXSound(SoundManager.instance.clickSound);
+        OpenPanel(exitPanel);
     }
     #endregion
 
     public void OnCloseCreditsBtnClicked()
     {
+        SoundManager.instance.PlaySFXSound(SoundManager.instance.clickSound);
         ClosePanel(creditsPanel);
     }
 
     public void OnCloseSettingsBtnClicked()
     {
+        SoundManager.instance.PlaySFXSound(SoundManager.instance.clickSound);
         ClosePanel(settingsController.panel);
+    }
+
+    public void OnNoBtnConfirmExit()
+    {
+        SoundManager.instance.PlaySFXSound(SoundManager.instance.clickSound);
+        ClosePanel(exitPanel);
+    }
+
+    public void OnYesBtnConfirmBtn()
+    {
+        SoundManager.instance.PlaySFXSound(SoundManager.instance.clickSound);
+        OnExitGame();
+    }
+
+    private void OnExitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+
+        Application.Quit();
     }
 
     private void OpenPanel(RectTransform panel)
@@ -102,6 +142,7 @@ public class HomeManager : MonoBehaviour
         panel.GetComponent<CanvasGroup>().alpha = 0;
         panel.gameObject.SetActive(true);
         mainMenu.SetActive(false);
+        gameLogo.SetActive(false);
 
         ScrollRect scrollRect = panel.GetComponentInChildren<ScrollRect>();
         CanvasGroup canvasGroup = panel.GetComponent<CanvasGroup>();
@@ -126,5 +167,6 @@ public class HomeManager : MonoBehaviour
             .OnComplete(target: panel, target => target.gameObject.SetActive(false));
 
         mainMenu.SetActive(true);
+        gameLogo.SetActive(true);
     }
 }

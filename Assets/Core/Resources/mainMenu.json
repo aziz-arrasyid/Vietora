@@ -19,7 +19,67 @@
         "en": "close",
         "id": "tutup"
     },
+    "submitBtn": {
+        "en": "submit",
+        "id": "kirim"
+    },
+    "messageQuizz": {
+        "correct": {
+            "id": "Jawabanmu benar! Pertahankan!",
+            "en": "Correct answer! Keep it up!"
+        },
+        "incorrect": {
+            "id": "Jawaban salah. Silakan coba lagi!",
+            "en": "Incorrect answer. Please try again!"
+        }
+    },
+    "notification": {
+        "title": {
+            "en": "scan successful",
+            "id": "scan berhasil"
+        },
+        "smallText": {
+            "en": "3D object spawned nearby",
+            "id": "Objek 3D muncul di sekitarmu"
+        }
+    },
+    "quizzTime": {
+        "en": "quizz time",
+        "id": "waktunya kuis"
+    },
+    "exitPanel": {
+        "question": {
+            "en": "Are you sure you want to quit the game?",
+            "id": "Apakah Anda ingin keluar dari game?"
+        },
+        "yesBtn": {
+            "en": "quit",
+            "id": "keluar"
+        },
+        "noBtn": {
+            "en": "cancel",
+            "id": "batal"
+        }
+    },
+    "homePanel": {
+        "question": {
+            "en": "Are you sure you want to return to the homepage?",
+            "id": "apakah kamu yakin ingin kembali ke beranda?"
+        },
+        "yesBtn": {
+            "en": "yes",
+            "id": "iya"
+        },
+        "noBtn": {
+            "en": "no",
+            "id": "tidak"
+        }
+    },
     "settings": {
+        "settings": {
+            "en": "settings",
+            "id": "pengaturan"
+        },
         "volume": {
             "en": "volume",
             "id": "volume"

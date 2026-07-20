@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -19,10 +20,25 @@ public struct QRGrouping
     public bool isReadingCompletedAll;
 }
 
-public struct ObjectActive
+[Serializable]
+public class MyObjectActive
 {
-    public QRTextList point;
-    public bool active;
+    public event Action<QRTextList> PointChanged;
+    [SerializeField] private QRTextList point;
+    public QRTextList Point
+    {
+        get => point;
+        set
+        {
+            if (point != value)
+            {
+                PointChanged?.Invoke(point);
+                point = value;
+            }
+        }
+    }
+
+    public bool Active;
 }
 
 [System.Serializable]
@@ -36,11 +52,12 @@ public struct QuizzData
 
 public class WorldManager : MonoBehaviour
 {
-    [Header("UI Components")]
-    public TextMeshProUGUI mappingStatus;
-    public TextMeshProUGUI QRStatus;
-
     [Header("Data Object Configuration")]
     public List<QRGrouping> QRObject;
-    public ObjectActive objectActive;
+    public MyObjectActive ObjectActive;
+
+    private void Start()
+    {
+        SoundManager.instance.ChangeBGM(SoundManager.instance.bgmGameplay);
+    }
 }

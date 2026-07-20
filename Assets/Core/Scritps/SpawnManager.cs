@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.ARFoundation;
 
 public class SpawnManager : MonoBehaviour
 {
+    [SerializeField] ARAnchorManager anchorManager;
+    [SerializeField] private QuizzManager quizzManager;
+    [SerializeField] private AnimatedNotification animatedNotification;
     #region Scripts
     [Header("Scripts")]
     [SerializeField] private WorldManager manager;
@@ -20,6 +25,7 @@ public class SpawnManager : MonoBehaviour
     private void OnEnable()
     {
         Mapping.OnQRMapping += ObjectSpawn;
+        manager.ObjectActive.PointChanged += AutoHideObject;
     }
 
     private void OnDisable()
@@ -37,18 +43,30 @@ public class SpawnManager : MonoBehaviour
             {
                 int foundedIndex = objectSpawned.FindIndex(item => item.QRText == textEnum);
                 QRGrouping foundedObject = objectSpawned[foundedIndex];
+
+                if (foundedObject.parentObject.activeSelf) return;
+
                 foundedObject.parentObject.SetActive(true);
                 StartDistanceCheck();
+                animatedNotification.Animated();
                 return;
             }
 
             int foundIndex = manager.QRObject.FindIndex(item => item.QRText == textEnum);
             if (foundIndex != -1)
             {
+
                 QRGrouping foundObject = manager.QRObject[foundIndex];
                 if (foundObject.parentObject == null) return;
 
+                GameObject anchor = new($"anchor_{text}");
+                anchor.transform.position = pose.position;
+                anchor.AddComponent<ARAnchor>();
+
+                animatedNotification.Animated();
+                quizzManager.quizzBtn.gameObject.SetActive(false);
                 GameObject newObject = Instantiate(foundObject.parentObject, pose.position, Quaternion.identity);
+                newObject.transform.SetParent(anchor.transform);
 
                 QRGrouping newQRGrouping = new()
                 {
@@ -58,7 +76,6 @@ public class SpawnManager : MonoBehaviour
 
                 objectSpawned.Add(newQRGrouping);
                 StartDistanceCheck();
-                Debug.Log(foundObject.QRText);
             }
             else
             {
@@ -68,6 +85,17 @@ public class SpawnManager : MonoBehaviour
         else
         {
             Debug.Log("Tidak ada data tersebut di enum");
+        }
+    }
+
+    private void AutoHideObject(QRTextList oldObject)
+    {
+        int index = objectSpawned.FindIndex(item => item.QRText == oldObject);
+
+        if (index != -1)
+        {
+            QRGrouping oldGrouping = objectSpawned[index];
+            oldGrouping.parentObject.SetActive(false);
         }
     }
 
@@ -81,7 +109,7 @@ public class SpawnManager : MonoBehaviour
         if (distanceCheck != null)
         {
             StopCoroutine(DistanceCheckRoutine());
-            manager.objectActive.point = QRTextList.empty;
+            manager.ObjectActive.Point = QRTextList.empty;
             distanceCheck = null;
         }
     }
@@ -92,7 +120,7 @@ public class SpawnManager : MonoBehaviour
         {
             yield return new WaitForSeconds(checkInterval);
 
-            int objectIndex = objectSpawned.FindIndex(item => item.QRText == manager.objectActive.point);
+            int objectIndex = objectSpawned.FindIndex(item => item.QRText == manager.ObjectActive.Point);
 
             if (objectIndex == -1)
             {
@@ -110,7 +138,7 @@ public class SpawnManager : MonoBehaviour
             {
                 Vector3 playerPosition = Camera.main.transform.position;
                 float distance = Mathf.Abs(Vector3.Distance(playerPosition, currentObject.parentObject.transform.position));
-                if (distance > maxDistance && !manager.objectActive.active)
+                if (distance > maxDistance && !manager.ObjectActive.Active)
                 {
                     currentObject.parentObject.SetActive(false);
                     StopDistanceCheck();

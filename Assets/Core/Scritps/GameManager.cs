@@ -1,6 +1,14 @@
 using UnityEngine;
 using System;
 using System.IO;
+using UnityEngine.Audio;
+
+public enum VolumesType
+{
+    musicVolume,
+    SFXVolume,
+    narratorVolume
+}
 
 [Serializable]
 public enum Language
@@ -36,8 +44,17 @@ public class MultiLangText
 }
 
 [Serializable]
+public class LocalizedHomePanel
+{
+    public MultiLangText question;
+    public MultiLangText yesBtn;
+    public MultiLangText noBtn;
+}
+
+[Serializable]
 public class LocalizedSettingsText
 {
+    public MultiLangText settings;
     public MultiLangText volume;
     public MultiLangText musicVolume;
     public MultiLangText SFXVolume;
@@ -50,6 +67,13 @@ public class LocalizedSettingsText
 }
 
 [Serializable]
+public class LocalizedNotification
+{
+    public MultiLangText title;
+    public MultiLangText smallText;
+}
+
+[Serializable]
 public class LocalizedMainMenuText
 {
     public MultiLangText startBtn;
@@ -57,6 +81,12 @@ public class LocalizedMainMenuText
     public MultiLangText creditsBtn;
     public MultiLangText exitBtn;
     public MultiLangText closeBtn;
+    public MultiLangText submitBtn;
+    public MessageQuizz messageQuizz;
+    public LocalizedNotification notification;
+    public MultiLangText quizzTime;
+    public LocalizedHomePanel exitPanel;
+    public LocalizedHomePanel homePanel;
     public LocalizedSettingsText settings;
 }
 
@@ -95,9 +125,24 @@ public class QuizzModel
 }
 
 [Serializable]
+public class Answer
+{
+    public string id;
+    public string en;
+}
+
+[Serializable]
+public class MessageQuizz
+{
+    public Answer correct;
+    public Answer incorrect;
+}
+
+[Serializable]
 public class QuizzModelData
 {
     public string name;
+    public bool alreadyCompleted;
     public QuizzModel[] quizzModel;
 }
 
@@ -121,7 +166,7 @@ public class Settings
         }
         set
         {
-            if(language != value)
+            if (language != value)
             {
                 language = value;
                 OnLangChanged?.Invoke();
@@ -129,7 +174,20 @@ public class Settings
         }
     }
 
-    public bool narrator;
+    [SerializeField] private bool narrator;
+    public Action OnNarratorChanged;
+    public bool Narrator
+    {
+        get => narrator;
+        set
+        {
+            if(value != narrator)
+            {
+                narrator = value;
+                OnNarratorChanged?.Invoke();
+            }
+        }
+    }
     public float musicVolume;
     public float SFXVolume;
     public float narratorVolume;
@@ -143,8 +201,9 @@ public class GameManager : MonoBehaviour
     public Sprite[] flags;
     public Settings settings;
     public QuizzModelData[] quizzModelData;
+    public AudioMixer mainAudioMixer;
 
-    private void Start()
+    private void Awake()
     {
         if (instance == null)
         {
@@ -154,7 +213,6 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            return;
         }
 
         quizzModelData = LoadJsonFile<RootQuizzData>("quizz").quizzModelData;
@@ -164,11 +222,39 @@ public class GameManager : MonoBehaviour
         settings = InstantiateData<Settings>("settings");
     }
 
+    private void Start()
+    {
+        LoadVolumeToMixer(VolumesType.musicVolume, settings.musicVolume);
+        LoadVolumeToMixer(VolumesType.SFXVolume, settings.SFXVolume);
+        LoadVolumeToMixer(VolumesType.narratorVolume, settings.narratorVolume);
+    }
+
+    public void LoadVolumeToMixer(VolumesType type, float value)
+    {
+        if (mainAudioMixer == null) return;
+
+        float clampVolume = Mathf.Clamp(value, 0.0001f, 1f);
+        float DBVolume = Mathf.Log10(clampVolume) * 20f;
+
+        switch (type)
+        {
+            case VolumesType.musicVolume:
+                mainAudioMixer.SetFloat("music", DBVolume);
+                break;
+            case VolumesType.SFXVolume:
+                mainAudioMixer.SetFloat("sfx", DBVolume);
+                break;
+            case VolumesType.narratorVolume:
+                mainAudioMixer.SetFloat("narrator", DBVolume);
+                break;
+        }
+    }
+
     public void SaveData<T>(string fileName, T objectData)
     {
         string pathFile = Path.Combine(Application.persistentDataPath, fileName + ".json");
 
-        if(!File.Exists(pathFile)) return;
+        if (!File.Exists(pathFile)) return;
 
         string jsonText = JsonUtility.ToJson(objectData, true);
         File.WriteAllText(pathFile, jsonText);

@@ -37,3 +37,63 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: car_vietora
     m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5452113904222229891
+      m_GuidHigh: 11230458286486870689
+    m_SerializedTextureGuid:
+      m_GuidLow: 11606956089596216827
+      m_GuidHigh: 16423012015717296648
+    m_Size: {x: 0.2, y: 0.2}
+    m_SpecifySize: 1
+    m_Name: youth_center_vietora
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5416015211281932601
+      m_GuidHigh: 1095009054540744888
+    m_SerializedTextureGuid:
+      m_GuidLow: 6477545235703460087
+      m_GuidHigh: 10935994721670649163
+    m_Size: {x: 0.2, y: 0.2}
+    m_SpecifySize: 1
+    m_Name: refugee_barracks_vietora
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5578437911000792927
+      m_GuidHigh: 6886098179303436474
+    m_SerializedTextureGuid:
+      m_GuidLow: 5374098011071832780
+      m_GuidHigh: 9668473568949903723
+    m_Size: {x: 0.2, y: 0.112500004}
+    m_SpecifySize: 1
+    m_Name: youth_center_vietora
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4622406875136521419
+      m_GuidHigh: 18383818915693822882
+    m_SerializedTextureGuid:
+      m_GuidLow: 5288364981924113594
+      m_GuidHigh: 16855281054290711002
+    m_Size: {x: 0.2, y: 0.112500004}
+    m_SpecifySize: 1
+    m_Name: refugee_barracks_vietora
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4727893404972575506
+      m_GuidHigh: 1164218011380722066
+    m_SerializedTextureGuid:
+      m_GuidLow: 5486594968203945281
+      m_GuidHigh: 14385977529874183258
+    m_Size: {x: 0.2, y: 0.112500004}
+    m_SpecifySize: 1
+    m_Name: ship_vietora
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5392503390380677716
+      m_GuidHigh: 17140775646072086934
+    m_SerializedTextureGuid:
+      m_GuidLow: 13174334227452203893
+      m_GuidHigh: 2459738398037682088
+    m_Size: {x: 0.2, y: 0.112500004}
+    m_SpecifySize: 1
+    m_Name: car_vietora
+    m_Texture: {fileID: 0}
